@@ -25,7 +25,7 @@ const WeeklyBets = ({users, fetchUsers}) => {
       }
       fetchData();
       return () => { isMounted = false };
-  }, [])
+  }, [fetchUsers])
 
   const renderBestUser = () => {
     const bestUser = new StatCalculatorUsers({users: users}).bestUserLastWeek
@@ -95,6 +95,7 @@ const WeeklyBets = ({users, fetchUsers}) => {
         )
       }
     }
+    return null;
   })
 
   const renderBets = betsWeek.map(({bet, user, group}) => {

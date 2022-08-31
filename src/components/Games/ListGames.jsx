@@ -22,7 +22,7 @@ const ListGames = ({league, leaguesStandings, fetchGames, fetchStanding, games})
       setIsLoading(false)
     }
     fetchAsync()
-  }, [])
+  }, [fetchGames, fetchStanding, league])
 
   const renderGames = () => {
     if(!games.hasOwnProperty(league)) {

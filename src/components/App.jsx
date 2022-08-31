@@ -32,7 +32,7 @@ const App = ({fetchUser, user}) => {
     }
     fetchData();
     return () => { isMounted = false };
-  }, [])
+  }, [fetchUser])
 
   const renderLeagues = LEAGUES.map(({name}) => {
     return <Route exact path={`/games/${name}`} key={name} render={(props) => <ListGames {...props} league={`${name}`} />} />

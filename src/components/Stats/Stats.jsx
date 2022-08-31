@@ -31,7 +31,7 @@ const GlobalStats = ({users, fetchUsers, fetchYears, years}) => {
       }
        fetchData();
       return () => { isMounted = false };
-  }, [selectedYear])
+  }, [fetchUsers, fetchYears, selectedYear])
 
   const changeParamsSorted = (value) => {
     setParamsSorted(value)
