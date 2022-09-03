@@ -6,6 +6,7 @@ export const fetchStanding = (league) => async (dispatch, getState) => {
     const res = await axios({
       method: 'get',
       url: `${process.env.REACT_APP_HOSTNAME}/api/${league}/standings`,
+      withCredentials: true
     })
 
     const payload = {

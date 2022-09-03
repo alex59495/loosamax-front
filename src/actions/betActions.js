@@ -23,7 +23,8 @@ export const createBet = ({choice, team, user_id, game}, history) => async (disp
         const res = await axios({
           url: `${process.env.REACT_APP_HOSTNAME}/api/bets`,
           method: 'post',
-          data: data
+          data: data,
+          withCredentials: true
         });
   
         switch(res.data.res) {
@@ -89,7 +90,11 @@ export const deleteBet = (id) => async (dispatch) =>
   }).then(async (result) => {
     if (result.isConfirmed) {
       try {
-        const res = await axios.delete(`${process.env.REACT_APP_HOSTNAME}/api/bets/${id}`);
+        const res = await axios({
+          method: 'delete',
+          url: `${process.env.REACT_APP_HOSTNAME}/api/bets/${id}`,
+          withCredentials: true
+        });
 
         switch(res.status) {
           case 200:

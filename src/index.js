@@ -12,7 +12,6 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import App from './components/App';
 import reducers from './reducers';
 
-
 // Useful to use the Redux extension debugger
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
