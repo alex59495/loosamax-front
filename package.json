@@ -39,6 +39,7 @@
     "@babel/preset-react": "^7.9.0",
     "babel-plugin-react-remove-properties": "^0.3.0"
   },
+  "proxy": "https://loosamax.fly.dev",
   "scripts": {
     "start": "BROWSER=none PORT=3149 react-scripts start",
     "build": "react-scripts build",
