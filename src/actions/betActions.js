@@ -24,7 +24,8 @@ export const createBet = ({choice, team, user_id, game}, history) => async (disp
           url: `${process.env.REACT_APP_HOSTNAME}/api/bets`,
           method: 'post',
           data: data,
-          withCredentials: true
+          withCredentials: true,
+          crossDomain:true
         });
   
         switch(res.data.res) {
@@ -93,7 +94,8 @@ export const deleteBet = (id) => async (dispatch) =>
         const res = await axios({
           method: 'delete',
           url: `${process.env.REACT_APP_HOSTNAME}/api/bets/${id}`,
-          withCredentials: true
+          withCredentials: true,
+          crossDomain:true
         });
 
         switch(res.status) {

@@ -6,7 +6,8 @@ export const fetchUser = () => async (dispatch) =>
   const res = await axios({ 
     method: 'get',
     url: `${process.env.REACT_APP_HOSTNAME}/api/current_user`,
-    withCredentials: true
+    withCredentials: true,
+    crossDomain:true
   })
   dispatch({ type: FETCH_USER, payload: res.data })
 };
@@ -17,7 +18,8 @@ export const fetchUsers = (selectedYear = null) => async (dispatch) =>
     const season = await axios({
       method: 'get',
       url: `${process.env.REACT_APP_HOSTNAME}/api/seasons/${selectedYear}`,
-      withCredentials: true
+      withCredentials: true,
+      crossDomain:true
     });
     const users = season?.data?.users ?? [];
     dispatch({ type: FETCH_USERS, payload: users })
@@ -27,7 +29,8 @@ export const fetchUsers = (selectedYear = null) => async (dispatch) =>
   const { data } = await axios({
     method: 'get',
     url: `${process.env.REACT_APP_HOSTNAME}/api/users`,
-    withCredentials: true
+    withCredentials: true,
+    crossDomain:true
   })
 
   dispatch({ type: FETCH_USERS, payload: data })
@@ -38,7 +41,8 @@ export const updateUser = (user, values) => {
     method: 'patch',
     url: `${process.env.REACT_APP_HOSTNAME}/api/current_user/${user._id}`,
     data: values,
-    withCredentials: true
+    withCredentials: true,
+    crossDomain:true
   })
   return {
     type: UPDATE_USER,

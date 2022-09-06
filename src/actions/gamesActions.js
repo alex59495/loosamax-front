@@ -6,7 +6,8 @@ export const fetchGames = (league) => async (dispatch) =>
   const res = await axios({
     method: 'get',
     url: `${process.env.REACT_APP_HOSTNAME}/api/games/${league}`,
-    withCredentials: true
+    withCredentials: true,
+    crossDomain:true
   })
   const filterGames = res.data.filter(game => {
     return new Date(game.commence_time) > Date.now()

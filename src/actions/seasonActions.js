@@ -5,7 +5,8 @@ export const fetchYears = () => async (dispatch) => {
   const { data } = await axios({
     method: 'get',
     url: `${process.env.REACT_APP_HOSTNAME}/api/seasons`,
-    withCredentials: true
+    withCredentials: true,
+    crossDomain:true
   })
   const years = data.map(season => season.year)
   
