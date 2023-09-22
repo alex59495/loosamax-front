@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import Loader from "react-loader-spinner";
+import { Triangle } from "react-loader-spinner";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
@@ -123,8 +123,7 @@ const GlobalStats = ({users, fetchUsers, fetchYears, years}) => {
     if(isLoading){
       return(
       <div className="container-center margin-auto">
-        <Loader
-          type="BallTriangle"
+        <Triangle
           color="#00BFFF"
           height={100}
           width={100}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from './Header';
@@ -12,7 +12,7 @@ import Stats from './Stats/Stats';
 import OldUserBets from './Bets/OldUserBets';
 import NoMatch from './NoMatch';
 
-import Loader from "react-loader-spinner";
+import { Triangle } from "react-loader-spinner";
 
 // Redux functions
 import {fetchUser} from '../actions/userActions';
@@ -42,8 +42,7 @@ const App = ({fetchUser, user}) => {
     if (isLoading) {
       return (
         <div className="container-center inherit-min-height justify-content-center">
-          <Loader
-          type="BallTriangle"
+          <Triangle
           color="#00BFFF"
           height={100}
           width={100}
@@ -55,10 +54,10 @@ const App = ({fetchUser, user}) => {
         <BrowserRouter>
           <Header />
           <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route component={NoMatch} status={404}/>
-            </Switch>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route element={<NoMatch />} status={404}/>
+            </Routes>
           </div>
         </BrowserRouter>
       )
@@ -67,16 +66,16 @@ const App = ({fetchUser, user}) => {
         <BrowserRouter>
           <Header />
           <div className="container">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/weekbets" component={WeeklyBets} />
-              <Route exact path="/mesparis" component={OldUserBets} />
-              <Route exact path="/stats" component={Stats} />
-              <Route exact path="/profile/:id" component={Profile} />
-              <Route exact path="/leagues" component={ListLeagues} />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/weekbets" element={<WeeklyBets />} />
+              <Route exact path="/mesparis" element={<OldUserBets />} />
+              <Route exact path="/stats" element={<Stats />} />
+              <Route exact path="/profile/:id" element={<Profile />} />
+              <Route exact path="/leagues" element={<ListLeagues />} />
               {renderLeagues}
-              <Route component={NoMatch} status={404}/>
-            </Switch>
+              <Route element={<NoMatch />} status={404}/>
+            </Routes>
           </div>
         </BrowserRouter>
       )

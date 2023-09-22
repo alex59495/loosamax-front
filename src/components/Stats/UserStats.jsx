@@ -45,8 +45,13 @@ const UserStats = ({user, order}) => {
         </tr>
       )
     } else {
-      return <p className="text-comment">Pas encore de paris...</p>
-    }
+      return (
+      <tr className="text-comment">
+        <td>
+          Pas encore de paris...
+        </td>
+      </tr>
+    )}
   }
 
   return (

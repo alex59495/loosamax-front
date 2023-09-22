@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from '../WithRouter';
 
 // Redux actions
 import {createBet} from '../../actions/betActions';

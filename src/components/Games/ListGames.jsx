@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
-import Loader from "react-loader-spinner";
+import { Triangle } from "react-loader-spinner";
 import { Link } from 'react-router-dom';
 
 import { fetchGames } from '../../actions/gamesActions';
@@ -59,8 +59,7 @@ const ListGames = ({league, leaguesStandings, fetchGames, fetchStanding, games})
     if(isLoading) {
       return (
         <div className="container-center" style={{height: "100%", width: "100%"}}>
-          <Loader
-            type="BallTriangle"
+          <Triangle
             color="#00BFFF"
             height={100}
             width={100}

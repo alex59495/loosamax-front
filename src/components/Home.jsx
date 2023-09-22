@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import {connect} from 'react-redux';
-import Loader from "react-loader-spinner";
+import { Triangle } from "react-loader-spinner";
 
 const Home = ({user}) => {
   const renderContent = () => {
     if(user && Object.keys(user).length === 0) {
       return (
-        <Loader
-          type="BallTriangle"
+        <Triangle
           color="#00BFFF"
           height={100}
           width={100}
