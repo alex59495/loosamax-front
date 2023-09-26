@@ -42,7 +42,7 @@
   },
   "proxy": "https://loosamax.fly.dev",
   "scripts": {
-    "start": "BROWSER=none PORT=3149 react-scripts --openssl-legacy-provider start",
+    "start": "BROWSER=none PORT=3149 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
