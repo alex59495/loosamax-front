@@ -1,44 +1,58 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 import { Triangle } from "react-loader-spinner";
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 // redux actions
-import * as actions from '../../actions/betActions';
-import BetPreview from '../Bets/BetPreview';
-import { isWeekend } from '../../utils/isWeekend';
+import * as actions from "../../actions/betActions";
+import BetPreview from "../Bets/BetPreview";
+import { isWeekend } from "../../utils/isWeekend";
 
-import StatCalculatorUserBets from '../../utils/stats/statCalculatorUserBets';
+import StatCalculatorUserBets from "../../utils/stats/statCalculatorUserBets";
 
-const MyBet = ({user, deleteBet}) => {
-
-  const statCalculatorUserBets = new StatCalculatorUserBets({userBets: user.bets})
+const MyBet = ({ user, deleteBet }) => {
+  const statCalculatorUserBets = new StatCalculatorUserBets({
+    userBets: user.bets,
+  });
 
   const renderMyBet = () => {
-    if(!user) {
+    if (!user) {
       return (
-        <div className="container-center" style={{height: "100%", width: "100%"}}>
-          <Triangle
-            color="#00BFFF"
-            height={100}
-            width={100}
-          />
+        <div
+          className="container-center"
+          style={{ height: "100%", width: "100%" }}
+        >
+          <Triangle color="#00BFFF" height={100} width={100} />
         </div>
-      )
-    } else if(!statCalculatorUserBets.currentBet)  {
+      );
+    } else if (!statCalculatorUserBets.currentBet) {
       return (
         <>
-          <div className="text-comment text-center">Pas de match pour le moment, gros feignant !</div>
-          <Link className='btn-risky mt-1' to='/leagues'>Voir les paris disponibles</Link>
+          <div className="text-comment text-center">
+            Pas de match pour le moment, gros feignant !
+          </div>
+          <Link className="btn-neutral mt-1" to="/leagues">
+            Voir les paris disponibles
+          </Link>
         </>
-      )
+      );
     } else {
       return (
         <div className="container-center">
-          <BetPreview bet={statCalculatorUserBets.currentBet} game={statCalculatorUserBets.currentBet.game}/>
-          {!isWeekend() ? <button className="btn-risky" onClick={() => deleteBet(statCalculatorUserBets.currentBet._id)}>Supprimer</button> : null}
+          <BetPreview
+            bet={statCalculatorUserBets.currentBet}
+            game={statCalculatorUserBets.currentBet.game}
+          />
+          {!isWeekend() ? (
+            <button
+              className="btn-risky"
+              onClick={() => deleteBet(statCalculatorUserBets.currentBet._id)}
+            >
+              Supprimer
+            </button>
+          ) : null}
         </div>
-      )
+      );
     }
   };
 
@@ -47,13 +61,13 @@ const MyBet = ({user, deleteBet}) => {
       <h3 className="text-center">Ton Pari de cette semaine</h3>
       {renderMyBet()}
     </div>
-  )
-}
+  );
+};
 
-const mapStateToProps = ({user}) => {
+const mapStateToProps = ({ user }) => {
   return {
-    user
-  }
-}
+    user,
+  };
+};
 
 export default connect(mapStateToProps, actions)(MyBet);

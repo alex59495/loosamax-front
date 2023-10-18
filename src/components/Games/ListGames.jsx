@@ -55,11 +55,7 @@ const ListGames = ({
     }
 
     const listGames = games[league].map((game) => {
-      return (
-        <>
-          <BetPreview key={game._id} game={game} />
-        </>
-      );
+      return <BetPreview key={game._id} game={game} />;
     });
 
     return (

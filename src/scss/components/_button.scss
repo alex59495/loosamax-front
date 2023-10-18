@@ -1,13 +1,36 @@
+/* CSS */
 .btn-risky {
-  background-color: $risky;
-  color: white;
-  border-radius: 4px;
+  color: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
   cursor: pointer;
-  padding: 4px;
-  &:hover {
-    transition: 0.5s;
-    background-color: $risky-dark;
-  }
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  line-height: 16px;
+  outline: 0;
+  padding: 0.4rem 0.6rem;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.btn-risky:hover,
+.btn-risky:active {
+  color: #ffffff;
+  background-color: initial;
+  background-position: 0 0;
+  background: #ff4742;
+}
+
+.btn-risky:active {
+  opacity: 0.5;
 }
 
 .btn-orange {
@@ -21,12 +44,43 @@
   padding: 0.625em 1.1em;
   &:hover {
     transition: 0.5s;
-    background-color: $intermediate
+    background-color: $intermediate;
   }
+}
+
+/* CSS */
+.btn-neutral {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px, rgba(18, 18, 18, 0.1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 0.6rem 0.8rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.2s, -webkit-box-shadow 0.2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn-neutral:hover {
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
 .btn-large {
   font-size: 22px;
   padding: 10px;
 }
-
