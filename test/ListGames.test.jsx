@@ -1,40 +1,41 @@
 // activate global mock to make sure actions doesnt make network call
-import React from 'react';
-import { mount } from 'enzyme';
-import ListGames from '../src/components/Games/ListGames';
-import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import { mount } from "enzyme";
+import ListGames from "../src/components/Games/ListGames";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router";
 
-import {games} from './data/games';
-import {fetchGames as mockFetchGames } from '../src/actions/gamesActions';
-import { storeFactory, findByTestAttr } from './testUtils';
+import { games } from "./data/games";
+import { fetchGames as mockFetchGames } from "../src/actions/gamesActions";
+import { storeFactory, findByTestAttr } from "./testUtils";
 
 // activate global mock to make sure actions dont make network call
-jest.mock('../src/actions/gamesActions');
+jest.mock("../src/actions/gamesActions");
 
-const setup = (initialState={}) => {
-  const store = storeFactory(initialState)
+const setup = (initialState = {}) => {
+  const store = storeFactory(initialState);
   return mount(
     <Provider store={store}>
       <BrowserRouter>
-        <ListGames league='ligue_1' fetchGames={mockFetchGames} games={games} />
+        <ListGames league="ligue_1" fetchGames={mockFetchGames} games={games} />
       </BrowserRouter>
-    </Provider>)
-}
+    </Provider>
+  );
+};
 
-describe('Component ListGames', () => {
+describe("Component ListGames", () => {
   beforeEach(() => {
-    mockFetchGames.mockClear()
-  })
+    mockFetchGames.mockClear();
+  });
 
-  test('render without error', () => {
-    const wrapper = setup({games: games});
-    const listGameComponent = findByTestAttr(wrapper, 'list-games');
+  test("render without error", () => {
+    const wrapper = setup({ games: games });
+    const listGameComponent = findByTestAttr(wrapper, "list-games");
     expect(listGameComponent).toHaveLength(1);
-  })
-  
-  test('fetch games is called when the component is mounted', () => {
+  });
+
+  test("fetch games is called when the component is mounted", () => {
     const wrapper = setup();
-    expect(mockFetchGames).toHaveBeenCalledTimes(1)
-  })
-})
+    expect(mockFetchGames).toHaveBeenCalledTimes(1);
+  });
+});

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Triangle } from "react-loader-spinner";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 // redux actions
 import * as actions from "../../actions/betActions";

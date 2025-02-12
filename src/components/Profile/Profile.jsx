@@ -9,7 +9,7 @@ import ColorEditor from "./ColorEditor";
 import FormPseudo from "./FormPseudo";
 
 // import { askForSubscription } from '../../subscriptionHandler'
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 
 const Profile = ({ user }) => {
   const [openEdit, setOpenEdit] = useState(false);

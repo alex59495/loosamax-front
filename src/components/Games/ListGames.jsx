@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Triangle } from "react-loader-spinner";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 import { fetchGames } from "../../actions/gamesActions";
 import { fetchStanding } from "../../actions/leaguesStandingsActions";
