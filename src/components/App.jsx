@@ -60,7 +60,7 @@ const App = ({ fetchUser, user }) => {
           <div className="container">
             <Routes>
               <Route exact path="/" element={<Home />} />
-              <Route element={<NoMatch />} status={404} />
+              <Route path="*" element={<NoMatch />} status={404} />
             </Routes>
           </div>
         </BrowserRouter>
@@ -78,7 +78,7 @@ const App = ({ fetchUser, user }) => {
               <Route exact path="/profile/:id" element={<Profile />} />
               <Route exact path="/leagues" element={<ListLeagues />} />
               {renderLeagues}
-              <Route element={<NoMatch />} status={404} />
+              <Route path="*" element={<NoMatch />} status={404} />
             </Routes>
           </div>
         </BrowserRouter>
